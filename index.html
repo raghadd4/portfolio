@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raghad Ahmad — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#16231C;
+    --ink-soft:#4A564E;
+    --paper:#F6F4EC;
+    --paper-dim:#EEEBDD;
+    --card:#FFFFFE;
+    --leaf:#3F6B4F;
+    --leaf-deep:#2A4A36;
+    --leaf-bright:#5C9271;
+    --line: rgba(22,35,28,0.13);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Public Sans', sans-serif;
+    font-size:16px;
+    line-height:1.6;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  a{color:inherit; text-decoration:none;}
+  .wrap{max-width:980px; margin:0 auto; padding:0 32px;}
+
+  /* NAV */
+  nav{
+    position:sticky; top:0; z-index:10;
+    background:rgba(246,244,236,0.86);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{
+    display:flex; justify-content:space-between; align-items:center;
+    padding-top:20px; padding-bottom:20px;
+  }
+  .brand{font-family:'Fraunces', serif; font-size:19px; font-weight:600;}
+  .nav-links{display:flex; gap:28px; font-size:14.5px; color:var(--ink-soft);}
+  .nav-links a:hover{color:var(--leaf-deep);}
+  .btn{
+    display:inline-block;
+    padding:11px 22px;
+    border-radius:100px;
+    font-size:14.5px;
+    font-weight:600;
+    border:1px solid var(--ink);
+  }
+  .btn-solid{background:var(--leaf-deep); color:var(--paper); border-color:var(--leaf-deep);}
+  .btn-solid:hover{background:var(--leaf);}
+  .btn-outline{border-color:var(--line); color:var(--ink-soft);}
+  .btn-outline:hover{border-color:var(--ink); color:var(--ink);}
+
+  /* HERO */
+  .hero{padding:110px 0 90px;}
+  .hero-kicker{
+    font-size:14.5px; color:var(--leaf-deep); margin-bottom:20px;
+  }
+  .hero h1{
+    font-size:clamp(46px, 8vw, 84px);
+    line-height:1.0;
+  }
+  .hero h1 em{font-style:italic; color:var(--leaf-deep);}
+  .hero .role{
+    margin-top:26px; font-size:20px; color:var(--ink-soft); max-width:52ch;
+  }
+  .hero-ctas{margin-top:38px; display:flex; gap:14px; flex-wrap:wrap;}
+  .hero-meta{
+    margin-top:56px; padding-top:28px; border-top:1px solid var(--line);
+    display:flex; flex-wrap:wrap; gap:10px 30px; font-size:14px; color:var(--ink-soft);
+  }
+  .hero-meta a:hover{color:var(--leaf-deep);}
+
+  section{padding:72px 0; border-top:1px solid var(--line);}
+
+  .eyebrow-row{
+    display:flex; align-items:baseline; gap:16px; margin-bottom:14px;
+  }
+  .section-num{font-size:14px; color:var(--leaf-deep);}
+  section h2{font-size:32px;}
+  .section-sub{color:var(--ink-soft); max-width:56ch; margin-top:14px; font-size:15px;}
+
+  /* ABOUT */
+  .about-body{margin-top:36px; display:grid; grid-template-columns:1.3fr 1fr; gap:48px;}
+  .about-body p{color:var(--ink-soft); max-width:56ch;}
+  .about-body p + p{margin-top:16px;}
+  .edu-card{
+    background:var(--card); border:1px solid var(--line); border-radius:16px; padding:26px;
+    align-self:start;
+  }
+  .edu-card .school{font-weight:600; font-size:16px;}
+  .edu-card .years{color:var(--ink-soft); font-size:14px; margin-top:6px;}
+  .edu-card .loc{color:var(--ink-soft); font-size:14px; margin-top:2px;}
+  @media (max-width:720px){.about-body{grid-template-columns:1fr;}}
+
+  /* SKILLS */
+  .skill-groups{margin-top:36px; display:grid; gap:26px;}
+  .skill-group-label{font-size:14px; color:var(--leaf-deep); margin-bottom:12px;}
+  .pill-row{display:flex; flex-wrap:wrap; gap:10px;}
+  .pill{
+    background:var(--card); border:1px solid var(--line);
+    border-radius:100px; padding:9px 18px; font-size:14px; color:var(--ink-soft);
+    transition:border-color .15s, color .15s;
+  }
+  .pill:hover{border-color:var(--leaf); color:var(--ink);}
+
+  /* PROJECTS */
+  .project-grid{margin-top:36px; display:grid; gap:22px;}
+  .project-card{
+    background:var(--card); border:1px solid var(--line); border-radius:20px;
+    padding:34px; display:grid; grid-template-columns:1fr auto; gap:20px;
+  }
+  .project-card h3{font-size:24px;}
+  .project-card .desc{color:var(--ink-soft); margin-top:10px; max-width:56ch;}
+  .project-card ul{margin:16px 0 0; padding-left:18px; color:var(--ink-soft);}
+  .project-card li{margin-bottom:6px;}
+  .tech-tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:18px;}
+  .tech-tag{
+    font-size:12.5px; color:var(--leaf-deep); background:var(--paper-dim);
+    border-radius:100px; padding:5px 12px;
+  }
+  .project-links{display:flex; flex-direction:column; gap:10px; align-items:flex-end; justify-content:flex-start;}
+  .project-links a{
+    font-size:13.5px; color:var(--ink-soft); border-bottom:1px solid var(--line); white-space:nowrap;
+  }
+  .project-links a:hover{color:var(--leaf-deep); border-color:var(--leaf);}
+  @media (max-width:640px){
+    .project-card{grid-template-columns:1fr;}
+    .project-links{flex-direction:row; align-items:center;}
+  }
+
+  /* CERTIFICATES — timeline */
+  .timeline{margin-top:36px;}
+  .t-row{
+    display:grid; grid-template-columns:140px 1fr; gap:24px;
+    padding:22px 0; border-top:1px solid var(--line);
+  }
+  .t-row:first-child{border-top:none;}
+  .t-date{color:var(--leaf-deep); font-size:14px; padding-top:2px;}
+  .t-name{font-weight:600; font-size:16.5px;}
+  .t-issuer{color:var(--ink-soft); font-size:14px; margin-top:4px;}
+  @media (max-width:600px){.t-row{grid-template-columns:1fr; gap:6px;}}
+
+  /* CONTACT */
+  .contact{border-top:1px solid var(--line); text-align:left;}
+  .contact h2{
+    font-size:clamp(36px, 6vw, 58px); max-width:14ch; line-height:1.05;
+  }
+  .contact-sub{color:var(--ink-soft); margin-top:18px; max-width:50ch; font-size:16px;}
+  .contact-row{
+    margin-top:40px; display:flex; justify-content:space-between; align-items:flex-end;
+    flex-wrap:wrap; gap:24px;
+  }
+  .contact-links{display:flex; flex-direction:column; gap:10px; font-size:15px;}
+  .contact-links a{color:var(--ink-soft);}
+  .contact-links a:hover{color:var(--leaf-deep);}
+
+  footer{
+    padding:28px 0 48px; border-top:1px solid var(--line);
+    font-size:13px; color:var(--ink-soft);
+  }
+
+  ::selection{background:var(--leaf); color:var(--paper);}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">Raghad Ahmad</div>
+    <div class="nav-links">
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#certificates">Certificates</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div class="hero-kicker">Portfolio — Amman, Jordan</div>
+    <h1>hi, I'm Raghad —<br>I build <em>full‑stack</em> web platforms.</h1>
+    <p class="role">Computer science student turning real processes — recycling logistics, study habits, focus — into working software, from Firebase back ends to responsive front ends.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-solid" href="#projects">See projects</a>
+      <a class="btn btn-outline" href="mailto:raghadahmad9095@gmail.com">Get in touch</a>
+    </div>
+    <div class="hero-meta">
+      <a href="mailto:raghadahmad9095@gmail.com">raghadahmad9095@gmail.com</a>
+      <span>+962 79 028 9095</span>
+      <a href="https://linkedin.com/in/raghadahmadd" target="_blank">LinkedIn</a>
+      <a href="https://github.com/raghadd4" target="_blank">GitHub</a>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="eyebrow-row"><span class="section-num">01</span><h2>About</h2></div>
+    <div class="about-body">
+      <div>
+        <p>I'm a computer science student who likes building things that connect a real process to a working piece of software — whether that's recycling logistics between institutions and collection centers, or a small tool that turns study habits into a number worth paying attention to.</p>
+        <p>Most of my projects lean full‑stack: Firebase and Firestore on the back end, plain JavaScript and responsive CSS on the front, deployed and usable rather than left as a prototype.</p>
+      </div>
+      <div class="edu-card">
+        <div class="school">B.Sc. in Computer Science</div>
+        <div class="loc">Al‑Balqa Applied University</div>
+        <div class="years">Al‑Salt, Jordan · 2022 – 2026</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="eyebrow-row"><span class="section-num">02</span><h2>Skills</h2></div>
+    <p class="section-sub">The languages, tools, and concepts I reach for most.</p>
+    <div class="skill-groups">
+      <div>
+        <div class="skill-group-label">Languages</div>
+        <div class="pill-row">
+          <span class="pill">Python</span>
+          <span class="pill">JavaScript</span>
+        </div>
+      </div>
+      <div>
+        <div class="skill-group-label">Web</div>
+        <div class="pill-row">
+          <span class="pill">HTML</span>
+          <span class="pill">CSS</span>
+          <span class="pill">Firebase</span>
+          <span class="pill">Firestore</span>
+          <span class="pill">REST / API Integration</span>
+        </div>
+      </div>
+      <div>
+        <div class="skill-group-label">Tools</div>
+        <div class="pill-row">
+          <span class="pill">Git</span>
+          <span class="pill">GitHub</span>
+          <span class="pill">GitHub Pages</span>
+          <span class="pill">VS Code</span>
+        </div>
+      </div>
+      <div>
+        <div class="skill-group-label">Concepts</div>
+        <div class="pill-row">
+          <span class="pill">Data Structures & Algorithms</span>
+          <span class="pill">File I/O</span>
+          <span class="pill">Authentication</span>
+          <span class="pill">Database Integration</span>
+          <span class="pill">Responsive Design</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="eyebrow-row"><span class="section-num">03</span><h2>Projects</h2></div>
+    <p class="section-sub">A deployed platform, plus two smaller tools built to test an idea end to end.</p>
+    <div class="project-grid">
+
+      <div class="project-card">
+        <div>
+          <h3>ReLeaf</h3>
+          <p class="desc">Smart paper recycling management platform connecting institutions with recycling centers for paper and carton collection.</p>
+          <ul>
+            <li>Deployed full‑stack platform with multilingual, responsive dashboards for customers and administrators</li>
+            <li>Integrated Firebase Authentication and Firestore for real‑time data persistence and sync</li>
+            <li>Built recycling request tracking, location‑based workflows, and analytics features</li>
+          </ul>
+          <div class="tech-tags">
+            <span class="tech-tag">HTML</span><span class="tech-tag">CSS</span><span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">Firebase</span><span class="tech-tag">Firestore</span><span class="tech-tag">GitHub Pages</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div>
+          <h3>Cognitive Load Analyzer</h3>
+          <p class="desc">A web‑based tool that evaluates how distraction affects academic workload.</p>
+          <ul>
+            <li>Weighted scoring logic (importance × time) to quantify productivity loss</li>
+            <li>Classifies cognitive state — balanced, fatigued, overloaded — from computed thresholds</li>
+          </ul>
+          <div class="tech-tags">
+            <span class="tech-tag">Python</span><span class="tech-tag">JavaScript</span><span class="tech-tag">HTML / CSS</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div>
+          <h3>Distraction Cost Calculator</h3>
+          <p class="desc">A command‑line application that puts a number on lost productivity.</p>
+          <ul>
+            <li>Calculates a weighted cost from task importance and time wasted</li>
+            <li>Uses functions, loops, and dictionaries to structure and store input</li>
+            <li>Persists data locally via file I/O and summarizes highest‑impact distractions</li>
+          </ul>
+          <div class="tech-tags">
+            <span class="tech-tag">Python</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="certificates">
+    <div class="eyebrow-row"><span class="section-num">04</span><h2>Certificates</h2></div>
+    <div class="timeline">
+      <div class="t-row">
+        <div class="t-date">Jan 2026</div>
+        <div>
+          <div class="t-name">CS50P: Introduction to Programming with Python</div>
+          <div class="t-issuer">Harvard University</div>
+        </div>
+      </div>
+      <div class="t-row">
+        <div class="t-date">Aug 2026</div>
+        <div>
+          <div class="t-name">Meta Front‑End Developer Professional Certificate</div>
+          <div class="t-issuer">Meta · Coursera</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="eyebrow-row"><span class="section-num">05</span></div>
+    <h2>It's time to talk — let's work together.</h2>
+    <p class="contact-sub">The best way to reach me is by email. I'm currently looking for opportunities where I can keep building full‑stack software that solves a real problem.</p>
+    <div class="contact-row">
+      <a class="btn btn-solid" href="mailto:raghadahmad9095@gmail.com">raghadahmad9095@gmail.com</a>
+      <div class="contact-links">
+        <a href="https://linkedin.com/in/raghadahmadd" target="_blank">LinkedIn ↗</a>
+        <a href="https://github.com/raghadd4" target="_blank">GitHub ↗</a>
+        <a href="tel:+962790289095">+962 79 028 9095</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>Raghad Ahmad — built with HTML & CSS.</footer>
+</div>
+
+</body>
+</html>
