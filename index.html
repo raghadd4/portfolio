@@ -241,12 +241,18 @@
       border-color: rgba(56, 189, 248, 0.3);
     }
 
+    /* Single image area with a Desktop/Mobile toggle in the corner.
+       Clicking Mobile reshapes the same screenshot into a phone frame
+       so nothing overlaps and nothing is cramped. */
     .project-img-wrapper {
       width: 100%;
-      height: 200px;
+      height: 210px;
       overflow: hidden;
       position: relative;
       background: #111827;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .project-img {
@@ -254,6 +260,57 @@
       height: 100%;
       object-fit: cover;
       object-position: top left;
+      display: block;
+      transition: width 0.3s ease, height 0.3s ease, border-radius 0.3s ease;
+    }
+
+    .project-img-wrapper.mobile-mode {
+      background: #0b0f17;
+    }
+
+    .project-img-wrapper.mobile-mode .project-img {
+      width: 118px;
+      height: 190px;
+      border-radius: 18px;
+      border: 3px solid #2a3547;
+      box-shadow: 0 12px 26px rgba(0, 0, 0, 0.45);
+      object-position: top center;
+    }
+
+    .view-toggle {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 4;
+      display: flex;
+      gap: 2px;
+      background: rgba(11, 15, 23, 0.75);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 3px;
+      backdrop-filter: blur(6px);
+    }
+
+    .view-toggle button {
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 5px 11px;
+      border-radius: 16px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+
+    .view-toggle button.active {
+      background: linear-gradient(135deg, #38bdf8, #818cf8);
+      color: #0b0f17;
+    }
+
+    .view-toggle button:not(.active):hover {
+      color: var(--text);
     }
 
     .project-content {
@@ -515,6 +572,8 @@
       .form-row { grid-template-columns: 1fr; }
       .resume-banner { flex-direction: column; align-items: flex-start; }
       footer { flex-direction: column; gap: 16px; text-align: center; }
+      .project-img-wrapper { height: 230px; }
+      .project-img-wrapper.mobile-mode .project-img { width: 128px; height: 206px; }
     }
   </style>
 </head>
@@ -579,8 +638,12 @@
           
           <!-- StudyFlow Card -->
           <article class="project-card">
-            <div class="project-img-wrapper">
-              <img src="study-flow.png" alt="StudyFlow App Preview" class="project-img">
+            <div class="project-img-wrapper" id="studyflow-preview">
+              <img src="study-flow.png" data-desktop="study-flow.png" data-mobile="study-flow-phone.jpeg" alt="StudyFlow App Preview" class="project-img">
+              <div class="view-toggle">
+                <button type="button" class="active" onclick="setView('studyflow-preview', 'desktop', this)">💻 Desktop</button>
+                <button type="button" onclick="setView('studyflow-preview', 'mobile', this)">📱 Mobile</button>
+              </div>
             </div>
             <div class="project-content">
               <h3 class="project-title">StudyFlow — Student Productivity App</h3>
@@ -602,8 +665,12 @@
 
           <!-- Little Lemon Card -->
           <article class="project-card">
-            <div class="project-img-wrapper">
-              <img src="little-lemon.png" alt="Little Lemon Website Preview" class="project-img">
+            <div class="project-img-wrapper" id="littlelemon-preview">
+              <img src="little-lemon.png" data-desktop="little-lemon.png" data-mobile="little-lemon-phone.jpeg" alt="Little Lemon Website Preview" class="project-img">
+              <div class="view-toggle">
+                <button type="button" class="active" onclick="setView('littlelemon-preview', 'desktop', this)">💻 Desktop</button>
+                <button type="button" onclick="setView('littlelemon-preview', 'mobile', this)">📱 Mobile</button>
+              </div>
             </div>
             <div class="project-content">
               <h3 class="project-title">Little Lemon — Reservation Platform</h3>
@@ -624,8 +691,12 @@
 
           <!-- ReLeaf Card -->
           <article class="project-card">
-            <div class="project-img-wrapper">
-              <img src="Releaf.png" alt="ReLeaf Recycling Platform Preview" class="project-img">
+            <div class="project-img-wrapper" id="releaf-preview">
+              <img src="Releaf.png" data-desktop="Releaf.png" data-mobile="releaf-phone.jpeg" alt="ReLeaf Recycling Platform Preview" class="project-img">
+              <div class="view-toggle">
+                <button type="button" class="active" onclick="setView('releaf-preview', 'desktop', this)">💻 Desktop</button>
+                <button type="button" onclick="setView('releaf-preview', 'mobile', this)">📱 Mobile</button>
+              </div>
             </div>
             <div class="project-content">
               <h3 class="project-title">ReLeaf — Smart Recycling Platform</h3>
@@ -770,5 +841,24 @@
       <p>Amman, Jordan •</p>
     </footer>
   </div>
+
+  <script>
+    function setView(id, mode, btn) {
+      var wrapper = document.getElementById(id);
+      wrapper.classList.toggle('mobile-mode', mode === 'mobile');
+
+      var img = wrapper.querySelector('.project-img');
+      if (img) {
+        var nextSrc = mode === 'mobile' ? img.getAttribute('data-mobile') : img.getAttribute('data-desktop');
+        if (nextSrc && img.getAttribute('src') !== nextSrc) {
+          img.setAttribute('src', nextSrc);
+        }
+      }
+
+      var buttons = btn.parentElement.querySelectorAll('button');
+      buttons.forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+    }
+  </script>
 </body>
 </html>
