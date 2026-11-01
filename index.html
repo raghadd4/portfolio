@@ -636,59 +636,6 @@
         <h2 class="section-title">Featured Work</h2>
         <div class="projects-grid">
           
-          <!-- StudyFlow Card -->
-          <article class="project-card">
-            <div class="project-img-wrapper" id="studyflow-preview">
-              <img src="study-flow.png" data-desktop="study-flow.png" data-mobile="study-flow-phone.jpeg" alt="StudyFlow App Preview" class="project-img">
-              <div class="view-toggle">
-                <button type="button" class="active" onclick="setView('studyflow-preview', 'desktop', this)">💻 Desktop</button>
-                <button type="button" onclick="setView('studyflow-preview', 'mobile', this)">📱 Mobile</button>
-              </div>
-            </div>
-            <div class="project-content">
-              <h3 class="project-title">StudyFlow — Student Productivity App</h3>
-              <p class="project-desc">Responsive study planner featuring dynamic course progress tracking, task management, Pomodoro timer, and Recharts analytics. Includes full UI/UX case study and WCAG accessibility standards.</p>
-              <div class="tags">
-                <span class="tag">React</span>
-                <span class="tag">Vite</span>
-                <span class="tag">Tailwind CSS</span>
-                <span class="tag">React Router</span>
-                <span class="tag">Recharts</span>
-                <span class="tag">UI/UX</span>
-              </div>
-              <div class="project-links">
-                <a href="https://study-flow-planner.netlify.app" target="_blank">Live Demo ↗</a>
-                <a href="https://github.com/raghadd4/StudyFlow-UI-UX-Case-Study" target="_blank">Source Code ↗</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Little Lemon Card -->
-          <article class="project-card">
-            <div class="project-img-wrapper" id="littlelemon-preview">
-              <img src="little-lemon.png" data-desktop="little-lemon.png" data-mobile="little-lemon-phone.jpeg" alt="Little Lemon Website Preview" class="project-img">
-              <div class="view-toggle">
-                <button type="button" class="active" onclick="setView('littlelemon-preview', 'desktop', this)">💻 Desktop</button>
-                <button type="button" onclick="setView('littlelemon-preview', 'mobile', this)">📱 Mobile</button>
-              </div>
-            </div>
-            <div class="project-content">
-              <h3 class="project-title">Little Lemon — Reservation Platform</h3>
-              <p class="project-desc">Full-stack restaurant reservation system with live table availability, custom Express REST API, asynchronous booking flow with useReducer, and automated Vitest suite.</p>
-              <div class="tags">
-                <span class="tag">React</span>
-                <span class="tag">Node.js</span>
-                <span class="tag">Express.js</span>
-                <span class="tag">Vite</span>
-                <span class="tag">Vitest</span>
-              </div>
-              <div class="project-links">
-                <a href="https://little-lemon-raghad.netlify.app" target="_blank">Live Demo ↗</a>
-                <a href="https://github.com/raghadd4" target="_blank">Source Code ↗</a>
-              </div>
-            </div>
-          </article>
-
           <!-- ReLeaf Card -->
           <article class="project-card">
             <div class="project-img-wrapper" id="releaf-preview">
@@ -715,6 +662,29 @@
             </div>
           </article>
 
+          <!-- Task Manager Card -->
+          <article class="project-card">
+            <div class="project-img-wrapper" id="taskmanager-preview">
+              <img src="task-manager.png" alt="Task Manager App Preview" class="project-img">
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Task Manager — Full-Stack MERN App</h3>
+              <p class="project-desc">Full-stack task manager with projects, color-coded priorities, deadline tracking, and overdue highlighting. Built on a custom Express REST API with MongoDB, plus scheduled Firebase Cloud Messaging push reminders for approaching deadlines. Hosted on a free server, so the first load may take a few seconds.</p>
+              <div class="tags">
+                <span class="tag">React</span>
+                <span class="tag">Vite</span>
+                <span class="tag">Node.js</span>
+                <span class="tag">Express.js</span>
+                <span class="tag">MongoDB</span>
+                <span class="tag">Firebase Cloud Messaging</span>
+              </div>
+              <div class="project-links">
+                <a href="https://alltask-manager.netlify.app" target="_blank">Live Demo ↗</a>
+                <a href="https://github.com/raghadd4/task-manager" target="_blank">Source Code ↗</a>
+              </div>
+            </div>
+          </article>
+
         </div>
       </section>
 
@@ -723,36 +693,36 @@
         <h2 class="section-title">Technical Capabilities</h2>
         <div class="grid-3">
           <div class="info-card">
-            <h3>Frontend & UI/UX</h3>
+            <h3>Frontend</h3>
             <ul class="skill-list">
-              <li class="skill-item">React & React Router</li>
-              <li class="skill-item">Tailwind CSS</li>
+              <li class="skill-item">React (Hooks & state)</li>
               <li class="skill-item">JavaScript (ES6+)</li>
               <li class="skill-item">HTML5 / CSS3</li>
-              <li class="skill-item">Figma Design Systems</li>
-              <li class="skill-item">Wireframing & Prototyping</li>
-              <li class="skill-item">Accessibility (WCAG)</li>
+              <li class="skill-item">Fetch API & async/await</li>
+              <li class="skill-item">Multilingual Interfaces</li>
+              <li class="skill-item">Vite</li>
             </ul>
           </div>
           <div class="info-card">
-            <h3>Backend & Development</h3>
+            <h3>Backend & Data</h3>
             <ul class="skill-list">
               <li class="skill-item">Node.js & Express.js</li>
               <li class="skill-item">REST API Design</li>
+              <li class="skill-item">MongoDB & Mongoose</li>
               <li class="skill-item">Firebase & Firestore</li>
-              <li class="skill-item">Python</li>
-              <li class="skill-item">Unit Testing (Vitest)</li>
-              <li class="skill-item">State Management</li>
+              <li class="skill-item">Firebase Cloud Messaging</li>
+              <li class="skill-item">Scheduled Jobs (node-cron)</li>
+              <li class="skill-item">Schema Validation</li>
             </ul>
           </div>
           <div class="info-card">
-            <h3>Tools & Foundations</h3>
+            <h3>Tools & Deployment</h3>
             <ul class="skill-list">
               <li class="skill-item">Git & GitHub</li>
               <li class="skill-item">GitHub Pages</li>
-              <li class="skill-item">Vite</li>
-              <li class="skill-item">Data Structures & Algorithms</li>
-              <li class="skill-item">Local Storage Persistence</li>
+              <li class="skill-item">Netlify & Render</li>
+              <li class="skill-item">MongoDB Atlas</li>
+              <li class="skill-item">Environment Variables & Secrets</li>
             </ul>
           </div>
         </div>
@@ -770,13 +740,10 @@
           <div class="info-card">
             <h3>Certifications</h3>
             <p style="font-weight: 500;">Meta Front-End Developer Professional Certificate</p>
-            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 8px;">Meta | Coursera (August 2026)</p>
-            
-            <p style="font-weight: 500;">Meta Back-End Developer Professional Certificate</p>
-            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 8px;">Meta | Coursera (In Progress)</p>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 8px;">Meta | Coursera</p>
 
             <p style="font-weight: 500;">CS50P: Introduction to Programming with Python</p>
-            <p style="color: var(--text-muted); font-size: 0.85rem;">Harvard University (January 2026)</p>
+            <p style="color: var(--text-muted); font-size: 0.85rem;">Harvard University</p>
           </div>
         </div>
       </section>
